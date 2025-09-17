@@ -131,6 +131,11 @@ return {
             'L3MON4D3/LuaSnip',
             version = "2.*",
             build = 'make install_jsregexp',
+            opts = {
+                history = true,
+                region_check_events = "InsertEnter",
+                delete_check_events = "TextChanged,InsertLeave",
+            },
             dependencies = {
                 {
                     'rafamadriz/friendly-snippets',
