@@ -36,6 +36,8 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Clear search highl
 
 vim.keymap.set('n', 'J', vim.diagnostic.open_float, { desc = 'Hover Diagnostics' })
 
+vim.keymap.set({ 'i', 'n' }, '<Tab>', '<Tab>') -- the jump is annoying because something has a bug i don't know of
+
 vim.api.nvim_create_autocmd('TextYankPost', {
     desc = "Highlight when yanking text",
     group = vim.api.nvim_create_augroup('YankHighlight', { clear = true }),

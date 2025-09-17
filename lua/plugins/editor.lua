@@ -79,6 +79,8 @@ return {
             vim.keymap.set('n', '<leader>d', require('telescope.builtin').diagnostics,
                 { desc = '[D] Search diagnostics' })
             vim.keymap.set('n', '<leader>b', require('telescope.builtin').buffers, { desc = '[B] Search buffers' })
+            vim.keymap.set('n', '<leader>s', require('telescope.builtin').lsp_dynamic_workspace_symbols,
+                { desc = '[S] Search symbols' })
         end,
         dependencies = {
             'nvim-lua/plenary.nvim',
@@ -167,5 +169,19 @@ return {
             snippets = { preset = 'luasnip' },
             fuzzy = { implementation = 'lua' },
         },
+    },
+
+    {
+        'akinsho/toggleterm.nvim',
+        config = function()
+            require('toggleterm').setup {
+                direction = 'vertical',
+                size = function()
+                    return vim.o.columns * 0.5
+                end
+            }
+
+            vim.keymap.set({ 'n', 't' }, '<C-s>', '<Cmd>ToggleTerm<CR>', { desc = 'Open scratch terminal' })
+        end
     },
 }
