@@ -9,7 +9,7 @@ return {
 
             local colors = {
                 bg = theme_colors.theme.ui.bg_gutter,
-                bg_secondary = theme_colors.palette.dragonBlack1,
+                bg_secondary = "#181616", -- theme_colors.palette.dragonBlack1,
                 fg = theme_colors.palette.oldWhite,
                 git_add = theme_colors.theme.vcs.added,
                 git_change = theme_colors.theme.vcs.changed,
