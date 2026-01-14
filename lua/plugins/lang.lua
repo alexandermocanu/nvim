@@ -1,47 +1,47 @@
 return {
     {
         'nvim-treesitter/nvim-treesitter',
-        dependencies = {
-            'nvim-treesitter/nvim-treesitter-textobjects',
-        },
         build = ':TSUpdate',
-        config = function()
-            require('nvim-treesitter.configs').setup {
-                ensure_installed = {},
-                modules = {},
-                ignore_install = {},
-                sync_install = false,
-                auto_install = true,
-
-                highlight = { enable = true },
-                indent = { enable = true },
-
-                incremental_selection = {
-                    enable = true,
-                    keymaps = {
-                        init_selection = '<c-space>',
-                        node_incremental = '<c-space>',
-                        scope_incremental = '<c-s>',
-                        node_decremental = '<M-space>'
-                    }
-                },
-
-                textobjects = {
-                    select = {
-                        enable = true,
-                        lookahead = true,
-                        keymaps = {
-                            ['aa'] = '@parameter.outer',
-                            ['ia'] = '@parameter.inner',
-                            ['af'] = '@function.outer',
-                            ['if'] = '@function.inner',
-                            ['ac'] = '@class.outer',
-                            ['ic'] = '@class.inner',
-                        }
-                    }
-                },
+        main = 'nvim-treesitter.config',
+        dependencies = {
+            {
+                'nvim-treesitter/nvim-treesitter-textobjects',
+                branch = 'main', -- UGH the changing from master to main has only caused problems
             }
-        end
+        },
+        opts = {
+            ensure_installed = { 'lua', 'luadoc' },
+            auto_install = true,
+
+            highlight = { enable = true },
+            indent = { enable = true },
+
+
+            incremental_selection = {
+                enable = true,
+                keymaps = {
+                    init_selection = '<c-space>',
+                    node_incremental = '<c-space>',
+                    scope_incremental = '<c-s>',
+                    node_decremental = '<M-space>'
+                },
+            },
+
+            textobjects = {
+                select = {
+                    enable = true,
+                    lookahead = true,
+                    keymaps = {
+                        ['aa'] = '@parameter.outer',
+                        ['ia'] = '@parameter.inner',
+                        ['af'] = '@function.outer',
+                        ['if'] = '@function.inner',
+                        ['ac'] = '@class.outer',
+                        ['ic'] = '@class.inner',
+                    }
+                }
+            },
+        },
     },
 
     {
